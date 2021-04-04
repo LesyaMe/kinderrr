@@ -185,6 +185,16 @@ name: "videosSection"
   height: 59px;
 
 }
+.videosSection:after{
+  content: '';
+  width: 100%;
+  height: 100px;
+  background: #F9F5EE;
+  -webkit-border-radius: 100px / 50px;
+  -moz-border-radius: 100px / 50px;
+  border-radius: 100px / 50px;
+
+}
 h2 {
   margin-bottom: 40px;
 }

@@ -1,17 +1,23 @@
 <template>
-  <section class="listen container">
-    <h1>Слушайте сказки со всего мира вместе с Пашей Волей и Kinder!</h1>
-    <p>Знакомьтесь с культурой разных народов, участвуйте в викторинах, собирайте ключи и выигрывайте призы! </p>
-    <div class="wrap-btn">
-      <a href="" class="button button--blue">Усаживайтесь<br>поудобнее</a>
-      <a href="" class="button button--red">Открывайте<br>книгу</a>
+  <div class="head-wrap">
+    <div class="top-content">
+      <img src="./../assets/volyaBg.png" alt="">
     </div>
-  </section>
+    <section class="listen container">
+      <h1>Слушайте сказки со всего мира вместе с Пашей Волей и Kinder!</h1>
+      <p>Знакомьтесь с культурой разных народов, участвуйте в викторинах, собирайте ключи и выигрывайте призы! </p>
+      <div class="wrap-btn">
+        <router-link tag="a" to="/" class="button button--blue">Усаживайтесь<br>поудобнее</router-link>
+        <router-link tag="a" class="button button--red" to="/readtogether">Открывайте<br>книгу</router-link>
+      </div>
+    </section>
+  </div>
+
 </template>
 
 <script>
 export default {
-name: "sectionInfo"
+  name: "sectionInfo"
 }
 </script>
 
@@ -23,6 +29,8 @@ h1  {
 }
 .listen {
   margin-bottom: 47px;
+  margin-top: 50px;
+  text-align: center;
 }
 .listen p {
   color: #00AAE8;
