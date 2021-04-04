@@ -22,6 +22,11 @@ export default {
 </script>
 
 <style scoped>
+.top-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 h1  {
   color: #DE5935;
   font-size: 26px;

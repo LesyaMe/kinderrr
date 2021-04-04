@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-     <div id="nav" v-if="currentPage != '/'" :class="{ volya: currentPage == 'volyasfairytales'}">
+     <div id="nav" v-if="currentPage != '/'" :class="{ 'volyas_block': this.currentPage === '/volyasfairytales'}">
         <router-link to="/volyasfairytales">Сказки от Павла Воли</router-link>
         <router-link to="/quiz">Викторина</router-link>
         <router-link to="/readtogether">Читаем вместе</router-link>
@@ -21,11 +21,14 @@ export default {
   components: {
     Header,
   },
+  mounted() {
+    console.log(this.currentPage);
+  },
   data() {
     return {
       currentPage: '',
     }
-  }
+  },
 }
 </script>
 
@@ -89,6 +92,8 @@ h4 {
   width: 60%;
   margin-left: auto;
   justify-content: space-around;
+  position: absolute;
+  right: 25px;
 }
 
 #nav a {
@@ -101,7 +106,7 @@ h4 {
   padding: 24px 0;
   color: var(--accent-text-color);
 }
-#nav.volya a {
+#nav.volyas_block>a {
   color: #fff;
 }
 
@@ -118,6 +123,9 @@ h4 {
   height: 8px;
   transform: translate(-50%, -50%);
   width: 100%;
+}
+#nav.volyas_block>a.router-link-exact-active:after {
+  background: none;
 }
 
 

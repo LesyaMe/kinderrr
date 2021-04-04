@@ -163,7 +163,8 @@ export default {
   text-align: center;
 }
 .victorina_header {
-  padding: 50px 0 155px;
+  padding: 0 0 155px;
+  margin-top: 15vh;
 
   text-align: center;
 }
