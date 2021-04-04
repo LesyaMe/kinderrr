@@ -50,7 +50,8 @@
               </div>
             </div>
           </div>
-          <Pagination v-model="page" :count="countQuestions" :per-page="questionInPage" />
+          <Pagination v-model="page" :count="countQuestions" :per-page="questionInPage" v-if="page !== questions.length"/>
+          <button class="standart_btn" type="submit" v-if="page === questions.length">Готово</button>
         </form>
 
 

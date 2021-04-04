@@ -31,6 +31,11 @@
           <div class="modal-close-button" @click="showModal=false">
             <img src="./../assets/closeModal.svg" alt="">
           </div>
+          <FairytalePagination v-model="page" :count="books.length" :per-page="bookInPage" />
+          <!--<div class="modal-buttons">
+            <div class="btn-left"><img src="./../assets/modalBtnLeft.svg" alt=""></div>
+            <div class="btn-right"><img src="./../assets/modalBtnRight.svg" alt=""></div>
+          </div>-->
         </div>
       </transition>
     </div>
@@ -38,8 +43,12 @@
 </template>
 
 <script>
+import FairytalePagination from '@/components/FairytalePagination'
 export default {
 name: "readTogether",
+  components: {
+    FairytalePagination
+  },
   data() {
     return {
       showModal: false,
@@ -65,6 +74,8 @@ name: "readTogether",
       ],
       bookText: '',
       bookTitle: '',
+      page: 1,
+      bookInPage: 1,
     }
   },
   computed: {
@@ -85,7 +96,9 @@ name: "readTogether",
 </script>
 
 <style scoped>
-
+.read {
+  position: relative;
+}
 .read h2 {
   position: relative;
   margin-top: 1em;
@@ -125,7 +138,7 @@ name: "readTogether",
   padding: 52px 93px 106px 113px;
   position: relative;
 }
-#modal-wrap :before {
+/*#modal-wrap :before {
   content: '';
   position: absolute;
   background-image: url("./../assets/Star_big1.png");
@@ -135,7 +148,7 @@ name: "readTogether",
   bottom: 0;
   right: 0;
   transform: translate(-50%, -50%);
-}
+}*/
 .modal-close-button  {
   position: absolute;
   top: -4%;
@@ -148,7 +161,7 @@ name: "readTogether",
   object-fit: contain;
 }
 .modal_text h3 {
-  margin-bottom: 54px;
+  margin-bottom: 3vh;
 }
 .modal_text p {
   font-family: 'Noto Sans', sans-serif;
@@ -158,7 +171,27 @@ name: "readTogether",
   height: 33vh;
   overflow: auto;
 }
-
+.modal-buttons {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 110%;
+  left: -5%;
+  transform: translate(0, -50%);
+}
+.btn-left,
+.btn-right {
+  height: 66px;
+  width: 73px;
+  cursor: pointer;
+}
+.btn-left img,
+.btn-right img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
 .fairytales_list_wrap {
   /*display: flex;
   flex-wrap: wrap;
