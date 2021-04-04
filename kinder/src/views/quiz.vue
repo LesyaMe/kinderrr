@@ -39,19 +39,23 @@
     <section class="activeQuiz">
       <div class="container">
         <h3>Выпуск № 1 Сказки о принятии себя, своих сильных и слабых сторон </h3>
-        <div class="question_wrap" v-for="(question, index) in questionsL" :key="index">
-          <span class="activeQuiz_question_page">{{index +1 }}/{{questions.length}}</span>
-          <div class="activeQuiz_question">{{question.title}}</div>
-          <form action="" class="question_form">
-            <div class="check-wrap" v-for="(questionOption, index) in question.questionOptions" :key="index">
-              <input type="radio" :id="question.id" class="checkbox" :name="question.name" v-model="question.isChecked">
-              <label :for="question.id" class="checkbox-text"><p>{{questionOption.text}}</p></label>
+        <form action="">
+          <div class="question_wrap" v-for="(question, index) in questionsL" :key="index">
+            <span class="activeQuiz_question_page">{{index + page }}/{{questions.length}}</span>
+            <div class="activeQuiz_question">{{question.title}}</div>
+            <div class="question_form">
+              <div class="check-wrap" v-for="(questionOption, index) in question.questionOptions" :key="index">
+                <input type="radio" :id="question.id" class="checkbox" :name="question.name" v-model="question.isChecked">
+                <label :for="question.id" class="checkbox-text"><p>{{questionOption.text}}</p></label>
+              </div>
             </div>
-          </form>
-        </div>
+          </div>
+          <Pagination v-model="page" :count="countQuestions" :per-page="questionInPage" />
+        </form>
+
 
 <!--        <button class="standart_btn">Далее</button>-->
-        <Pagination :page="page" :count="countQuestions" :per-page="questionInPage" />
+
       </div>
     </section>
     <section class="victorina_winners">
@@ -216,6 +220,7 @@ export default {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 18px;
+  cursor: pointer;
 }
 .victorina_release1 {
   position: relative;
