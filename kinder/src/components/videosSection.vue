@@ -195,11 +195,45 @@ name: "videosSection"
   border-radius: 100px / 50px;
 
 }
-h2 {
+.videosSection h2 {
   margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 24px;
+  color: var(--accent-text-color);
+  text-align: center;
 }
 h3 {
   margin-bottom: 50px;
+
+}
+.fairyTale-block h3 {
+  position: relative;
+  width: 65%;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.fairyTale-block h3:nth-child(1):after {
+  content: '';
+  position: absolute;
+  background: url(./../assets/stars.svg) no-repeat;
+  background-size: contain;
+  top: 24%;
+  right: -23%;
+  height: 90px;
+  width: 70px;
+  transform: translate(-50%, -50%);
+}
+.fairyTale-block h3:before {
+  content: '';
+  position: absolute;
+  background: url(./../assets/Star_big1.png) no-repeat;
+  background-size: contain;
+  bottom: -42%;
+  left: -38%;
+  height: 90px;
+  width: 90px;
+  transform: translate(-50%, -50%);
 }
 .videos-wrap {
   display: flex;
@@ -212,14 +246,14 @@ h3 {
 .main-video .video-container {
   width: 100%;
   height: 444px;
-  background-image: url("./../assets/mainVideoBg.svg");
+  background-image: url(./../assets/mainVideoBg.svg);
   background-repeat: no-repeat;
   border-radius: 23px;
-  background-size: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  background-size: 100% 100%;
 
 }
 .main-video__img {
@@ -231,7 +265,7 @@ h3 {
   background-color: #DE5935;
   border-radius: 23px;
   width: 663px;
-  height: 372px;
+  height: 85%;
   position: relative;
 }
 .main-video .video:after {
@@ -301,5 +335,10 @@ h3 {
   background-image: url("./../assets/print.svg");
   background-repeat: no-repeat;
   background-position: top 45% right 10%;;
+}
+@media screen and (max-width: 1024px){
+  .main-video {
+    width: 71%;
+  }
 }
 </style>

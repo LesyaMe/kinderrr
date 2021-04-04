@@ -11,15 +11,18 @@
     <transition name="fade">
       <router-view :page.sync="currentPage"/>
     </transition>
+    <Footer v-if="currentPage != '/'" />
   </div>
 </template>
 <script>
 import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 export default {
   name: 'App',
   components: {
     Header,
+    Footer
   },
   mounted() {
     console.log(this.currentPage);
@@ -128,5 +131,9 @@ h4 {
   background: none;
 }
 
-
+@media screen and (max-width: 1024px){
+  h2 {
+    line-height: 49px;
+  }
+}
 </style>
