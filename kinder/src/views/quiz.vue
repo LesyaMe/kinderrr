@@ -45,8 +45,8 @@
             <div class="activeQuiz_question">{{question.title}}</div>
             <div class="question_form">
               <div class="check-wrap" v-for="(questionOption, index) in question.questionOptions" :key="index">
-                <input type="radio" :id="question.id" class="checkbox" :name="question.name" v-model="question.isChecked">
-                <label :for="question.id" class="checkbox-text"><p>{{questionOption.text}}</p></label>
+                <input type="radio" :id="questionOption.id" class="checkbox" :name="question.name" v-model="questionOption.isChecked">
+                <label :for="questionOption.id" class="checkbox-text"><p>{{questionOption.text}}</p></label>
               </div>
             </div>
           </div>
@@ -342,6 +342,7 @@ export default {
 .checkbox-text {
   display: flex;
   margin-bottom: 35px;
+  align-items: center;
 }
 
 .checkbox:checked ~ .checkbox-text::before {
