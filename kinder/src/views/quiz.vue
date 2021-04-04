@@ -39,19 +39,19 @@
     <section class="activeQuiz">
       <div class="container">
         <h3>Выпуск № 1 Сказки о принятии себя, своих сильных и слабых сторон </h3>
-        <span class="activeQuiz_question_page">1/10</span>
-        <div class="activeQuiz_question">Как черепахе из сказки «Черепаха и Каипора» удалось выиграть у Каипоры соревнование?</div>
-        <form action="" class="question_form">
-          <input type="radio" id="question1var1" class="checkbox" name="question1">
-          <label for="question1var1" class="checkbox-text"><p>Она долго тренировалась</p></label>
-          <input type="radio" id="question1var2" class="checkbox" name="question1">
-          <label for="question1var2" class="checkbox-text"><p>Она позвала на помощь других животных</p></label>
-          <input type="radio" id="question1var3" class="checkbox" name="question1">
-          <label for="question1var3" class="checkbox-text"><p>Она перехитрила Каипору</p></label>
-          <input type="radio" id="question1var4" class="checkbox" name="question1">
-          <label for="question1var4" class="checkbox-text"><p>Она заставила судью присудить ей победу</p></label>
-        </form>
-        <button class="standart_btn">Далее</button>
+        <div class="question_wrap" v-for="(question, index) in questionsL" :key="index">
+          <span class="activeQuiz_question_page">{{index +1 }}/{{questions.length}}</span>
+          <div class="activeQuiz_question">{{question.title}}</div>
+          <form action="" class="question_form">
+            <div class="check-wrap" v-for="(questionOption, index) in question.questionOptions" :key="index">
+              <input type="radio" :id="question.id" class="checkbox" :name="question.name" v-model="question.isChecked">
+              <label :for="question.id" class="checkbox-text"><p>{{questionOption.text}}</p></label>
+            </div>
+          </form>
+        </div>
+
+<!--        <button class="standart_btn">Далее</button>-->
+        <Pagination :page="page" :count="countQuestions" :per-page="questionInPage" />
       </div>
     </section>
     <section class="victorina_winners">
@@ -95,16 +95,60 @@
 </template>
 
 <script>
+import Pagination from '@/components/QuizPagination'
 export default {
   name: "Quiz",
+  components: {
+    Pagination,
+  },
   data() {
     return {
       pagePath: this.$route.path,
+      questions: [
+        {title: 'Как черепахе из сказки «Черепаха и Каипора» удалось выиграть у Каипоры соревнование?',
+        name: 'question1',
+          questionOptions: [
+            {text: 'Она долго тренировалась', isChecked: false, id: 'question1var1' },
+            {text: 'Она позвала на помощь других животных', isChecked: false, id: 'question1var2'},
+            {text: 'Она перехитрила Каипору', isChecked: false, id: 'question1var3'},
+            {text: 'Она заставила судью присудить ей победу', isChecked: false, id: 'question1var4'},
+          ],
+          },
+        {title: 'Второй вопрос',
+          name: 'question2',
+          questionOptions: [
+            {text: 'Она долго тренировалась', isChecked: false, id: 'question2var1' },
+            {text: 'Она позвала на помощь других животных', isChecked: false, id: 'question2var2'},
+            {text: 'Она перехитрила Каипору', isChecked: false, id: 'question2var3'},
+            {text: 'Еще вариант', isChecked: false, id: 'question2var4'},
+          ],
+        },
+        {title: 'Третий вопрос',
+          name: 'question3',
+          questionOptions: [
+            {text: 'Она долго тренировалась', isChecked: false, id: 'question3var1' },
+            {text: 'Она позвала на помощь других животных', isChecked: false, id: 'question3var2'},
+            {text: 'Она перехитрила Каипору', isChecked: false, id: 'question3var3'},
+            {text: 'Она заставила судью присудить ей победу', isChecked: false, id: 'question3var4'},
+          ],
+        },
+      ],
+      questionInPage: 1,
+      page: 1,
     };
   },
   mounted() {
     this.$emit('update:page', this.pagePath);
   },
+  computed: {
+    questionsL () {
+      const offset = (this.page - 1) * this.questionInPage;
+      return this.questions.slice(offset, offset + this.questionInPage);
+    },
+    countQuestions() {
+      return this.questions.length;
+    }
+  }
 }
 </script>
 
