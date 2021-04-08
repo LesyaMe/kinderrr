@@ -165,12 +165,24 @@ export default {
 }
 .victorina_header {
   padding: 0 0 155px;
-  margin-top: 15vh;
+
 
   text-align: center;
 }
 .victorina_header h2 {
   margin-bottom: 50px;
+  margin-top: 3em;
+}
+select {
+  padding: 15px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: var(--accent-text-color);
+  border: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 23px;
 }
 .steps {
   background: url("./../assets/quizBg.png") no-repeat center;

@@ -97,6 +97,8 @@ h4 {
   justify-content: space-around;
   position: absolute;
   right: 25px;
+  top: 0;
+  margin-top: 50px;
 }
 
 #nav a {

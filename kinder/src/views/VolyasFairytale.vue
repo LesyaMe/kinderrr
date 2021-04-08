@@ -26,6 +26,7 @@ name: "VolyasFairytale",
 </script>
 
 <style scoped>
+
 .victorina_header {
   padding: 50px 0 155px;
 

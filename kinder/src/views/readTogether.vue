@@ -101,9 +101,8 @@ name: "readTogether",
 }
 .read h2 {
   position: relative;
-  margin-top: 1em;
   text-align: center;
-  margin-top: 15vh;
+  margin-top: 3em;
 }
 .read h2:after {
   content: '';

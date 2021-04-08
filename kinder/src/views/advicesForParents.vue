@@ -118,7 +118,7 @@ name: "advicesForParents",
 }*/
 .advice_to_parents h2 {
   position: relative;
-  margin-top: 15vh;
+  margin-top: 3em;
   margin-bottom: 1em;
   text-align: center;
 }

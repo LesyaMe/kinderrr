@@ -49,7 +49,7 @@
               <div class="video"></div>
             </div>
             <div class="main-video__img">
-              <img src="./../assets/KROLIK.svg" alt="">
+              <img src="./../assets/GUS.png" alt="">
             </div>
             <div class="main-video-bottom">
               <div class="video-name">Бразильская сказка «о Каипоре и черепахе»</div>
@@ -87,7 +87,7 @@
               <div class="video"></div>
             </div>
             <div class="main-video__img">
-              <img src="./../assets/KROLIK.svg" alt="">
+              <img src="./../assets/KROLIK2.png" alt="">
             </div>
             <div class="main-video-bottom">
               <div class="video-name">Бразильская сказка «о Каипоре и черепахе»</div>
@@ -125,7 +125,7 @@
               <div class="video"></div>
             </div>
             <div class="main-video__img">
-              <img src="./../assets/KROLIK.svg" alt="">
+              <img src="./../assets/GIRAF.png" alt="">
             </div>
             <div class="main-video-bottom">
               <div class="video-name">Бразильская сказка «о Каипоре и черепахе»</div>
@@ -256,10 +256,15 @@ h3 {
   background-size: 100% 100%;
 
 }
+
 .main-video__img {
   position: absolute;
   left: -11px;
   top: 33%;
+}
+.main-video:nth-child(4).main-video__img{
+  left: -69px;
+  top: 25%;
 }
 .main-video .video {
   background-color: #DE5935;

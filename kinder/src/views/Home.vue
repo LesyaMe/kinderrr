@@ -9,7 +9,7 @@
 
     </div>
     <div class="right-content">
-      <img src="./../assets/mainBannerImg.png" alt="">
+      <!--<img src="../assets/mainBannerBg.png" alt="">-->
     </div>
     <router-view/>
   </main>
@@ -39,6 +39,7 @@ export default {
 .banner {
   display: flex;
   justify-content: space-between;
+  padding-top: 48px;
 }
 .banner h1 {
   font-size: 72px;
@@ -62,12 +63,12 @@ export default {
 .banner .left-content {
   position: relative;
   width: 45.5%;
-  padding: 0 0 0 11vw;
+  padding: 0 0 0 6vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.banner .left-content:after {
+/*.banner .left-content:after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -78,14 +79,19 @@ export default {
   pointer-events: none;
   z-index: 1;
   background-size: cover;
-}
+}*/
 .banner .right-content {
   width: 62.5vw;
+  height: 94.5vh;
+  background: url("./../assets/mainBannerBg.png") no-repeat;
+  background-size: cover;
+  background-position: left;
 }
 .banner .right-content img{
   width: 100%;
   height: 99%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: left
 }
 .banner-btn {
   background-image: url(./../assets/bannerButton.svg);
@@ -103,5 +109,57 @@ export default {
   font-size: 20px;
   line-height: 16px;
   font-family: inherit;
+}
+@media screen and (max-width: 1024px) {
+  .nav-list {
+    width: 68%;
+  }
+  .banner h1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin-top: 1em;
+  }
+  .banner .left-content:after {
+    top: -47%;
+
+  }
+}
+@media screen and (max-width: 770px) {
+ .banner {
+   flex-direction: column-reverse;
+ }
+  .banner .right-content {
+    width: 100%;
+  }
+  .banner .left-content {
+    width: 100%;
+  }
+  .banner .left-content:after {
+    display: none;
+  }
+  .banner .left-content:before {
+    content: '';
+    position: absolute;
+    background-image: url("./../assets/bannerTabWave.svg");
+    top: -37%;
+    left: 0;
+    right: 0;
+    height: 130px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .banner .left-content:before {
+    top: -29%;
+  }
+  .banner h1[data-v-fae5bece] {
+    font-size: 42px;
+  }
+
+
+}
+@media screen and (max-width: 376px) {
+  .banner .left-content:before {
+    top: -26%;
+  }
 }
 </style>
